@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ManageCDStore</string>
+    <string name="UserName">Username</string>
+    <string name="PassWord">Password</string>
+    <string name="ReType">Retype</string>
+    <string name="Birthdate">Birthdate</string>
+    <string name="Select">Select</string>
+    <string name="Gender">Gender</string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
+    <string name="Hobbies">Hobbies</string>
+    <string name="Tennis">Tennis</string>
+    <string name="Football">Football</string>
+    <string name="Others">Others</string>
+    <string name="Reset">Reset</string>
+    <string name="SignUp">Sign-Up</string>
+    <string name="dateHint">dd/mm/yyyy</string>
 </resources>
