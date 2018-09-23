@@ -31,6 +31,7 @@ public class RegisterForm extends AppCompatActivity
     private Button btnSignUp;
     private Button btnSelect;
     private Button btnReset;
+    private Button btnExit;
     private RadioGroup rdoGender;
     private CheckBox chkTennis;
     private CheckBox chkFootball;
@@ -49,6 +50,7 @@ public class RegisterForm extends AppCompatActivity
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
         btnSelect = (Button) findViewById(R.id.btnSelect);
         btnReset = (Button) findViewById(R.id.btnReset);
+        btnExit = (Button) findViewById(R.id.btnExit);
         rdoGender = (RadioGroup) findViewById(R.id.rdoGender);
         chkTennis = (CheckBox) findViewById(R.id.chkTennis);
         chkFootball = (CheckBox) findViewById(R.id.chkFootball);
@@ -71,6 +73,14 @@ public class RegisterForm extends AppCompatActivity
                 dialog.show();
             }
         });
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               finish();
+            }
+        });
+
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             final String TAG = "RegisterForm";
             @Override
@@ -86,6 +96,16 @@ public class RegisterForm extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 boolean flat = true;
+                if (txtUsername.getText().toString().isEmpty())
+                {
+                    Toast.makeText(RegisterForm.this,"Username is empty!", Toast.LENGTH_SHORT).show();
+                    flat = false;
+                }
+                if (txtPassword.getText().toString().isEmpty())
+                {
+                    Toast.makeText(RegisterForm.this,"Password is empty!", Toast.LENGTH_SHORT).show();
+                    flat = false;
+                }
                 if(!IsDuplicate(txtPassword.getText().toString(), txtRetrype.getText().toString()))
                 {
                     Toast.makeText(RegisterForm.this, "Retype is not match!", Toast.LENGTH_SHORT).show();
@@ -132,7 +152,7 @@ public class RegisterForm extends AppCompatActivity
                 txtPassword.setText("");
                 txtRetrype.setText("");
                 txtBirthdate.setText("");
-                rdoGender.clearCheck();
+                rdoGender.check(R.id.rdomale);
                 chkTennis.setChecked(false);
                 chkFootball.setChecked(false);
                 chkOthers.setChecked(false);

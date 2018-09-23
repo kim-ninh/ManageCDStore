@@ -15,4 +15,5 @@
     <string name="Reset">Reset</string>
     <string name="SignUp">Sign-Up</string>
     <string name="dateHint">dd/mm/yyyy</string>
+    <string name="exit">Exit</string>
 </resources>

@@ -121,7 +121,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/Male"/>
+            android:text="@string/Male"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/rdofemale"
@@ -172,6 +173,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Reset"/>
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/btnExit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/exit"/>
 
         <Button
             style="?android:attr/buttonBarButtonStyle"
