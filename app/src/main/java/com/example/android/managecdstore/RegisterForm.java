@@ -5,7 +5,6 @@ import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class RegisterForm extends AppCompatActivity /*implements DatePickerDialog.OnDateSetListener*/
+public class RegisterForm extends AppCompatActivity
 {
 
     private EditText txtUsername;
@@ -58,8 +57,6 @@ public class RegisterForm extends AppCompatActivity /*implements DatePickerDialo
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*DialogFragment datePicker = new DialogFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");*/
                 Calendar cal = Calendar.getInstance();
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
@@ -143,19 +140,6 @@ public class RegisterForm extends AppCompatActivity /*implements DatePickerDialo
         });
     }
 
-    /*@Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Calendar cal = Calendar.getInstance();
-
-        cal.set(Calendar.YEAR, year);
-        cal.set(Calendar.MONTH, month);
-        cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(cal.getTime());
-
-        txtBirthdate.setText(currentDateString);
-    }*/
-
     private boolean IsDuplicate(String pass, String retrype)
     {
         if(!(pass.equals(retrype)))
@@ -163,7 +147,6 @@ public class RegisterForm extends AppCompatActivity /*implements DatePickerDialo
             return false;
         }
         return true;
-            //Toast.makeText(this, "Retrype are not duplicate!", Toast.LENGTH_SHORT).show();
     }
     private boolean IsValidDate(String inDate)
     {
@@ -176,7 +159,6 @@ public class RegisterForm extends AppCompatActivity /*implements DatePickerDialo
             dateFormat.parse(inDate.trim());
         } catch (ParseException e) {
             return false;
-           // Toast.makeText(RegisterForm.this, "Birthdate is unvalid", Toast.LENGTH_SHORT).show();
         }
         return true;
     }
