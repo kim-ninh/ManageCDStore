@@ -65,7 +65,7 @@ public class RegisterForm extends AppCompatActivity implements DatePickerDialog.
                 boolean flat = true;
                 if(!IsDuplicate(txtPassword.getText().toString(), txtRetrype.getText().toString()))
                 {
-                    Toast.makeText(RegisterForm.this, "Retype is not match!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterForm.this, "Retrype are not duplicate!", Toast.LENGTH_SHORT).show();
                     flat = false;
                 }
                 if(!IsValidDate(txtBirthdate.getText().toString()))
