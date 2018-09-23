@@ -2,9 +2,12 @@ package com.example.android.managecdstore;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,7 +22,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class RegisterForm extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
+public class RegisterForm extends AppCompatActivity /*implements DatePickerDialog.OnDateSetListener*/
 {
 
     private EditText txtUsername;
@@ -34,6 +37,7 @@ public class RegisterForm extends AppCompatActivity implements DatePickerDialog.
     private CheckBox chkFootball;
     private CheckBox chkOthers;
 
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +58,32 @@ public class RegisterForm extends AppCompatActivity implements DatePickerDialog.
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment datePicker = new DialogFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
+                /*DialogFragment datePicker = new DialogFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");*/
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        RegisterForm.this,
+                        R.style.Theme_AppCompat_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                dialog.show();
             }
         });
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            final String TAG = "RegisterForm";
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month += 1;
+                Log.d(TAG, "On DateSet Date: " + dayOfMonth + "/" + month + "/" + year);
+                String date = dayOfMonth + "/" + month + "/" + year;
+                txtBirthdate.setText(date);
+            }
+        };
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +143,7 @@ public class RegisterForm extends AppCompatActivity implements DatePickerDialog.
         });
     }
 
-    @Override
+    /*@Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         Calendar cal = Calendar.getInstance();
 
@@ -128,7 +154,7 @@ public class RegisterForm extends AppCompatActivity implements DatePickerDialog.
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(cal.getTime());
 
         txtBirthdate.setText(currentDateString);
-    }
+    }*/
 
     private boolean IsDuplicate(String pass, String retrype)
     {
