@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/UserName"
-            android:labelFor="@id/txtUsername"/>
+            android:labelFor="@id/txtUsername"
+            android:gravity="end"/>
 
         <EditText
             android:id="@+id/txtUsername"
@@ -42,7 +43,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/PassWord"
-            android:labelFor="@id/txtPassword"/>
+            android:labelFor="@id/txtPassword"
+            android:gravity="end"/>
 
         <EditText
             android:id="@+id/txtPassword"
@@ -63,7 +65,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/ReType"
-            android:labelFor="@id/txtRetype"/>
+            android:labelFor="@id/txtRetype"
+            android:gravity="end"/>
 
         <EditText
             android:id="@+id/txtRetype"
@@ -91,7 +94,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:inputType="date"
-            android:hint="@string/dateHint"/>
+            android:hint="@string/dateHint"
+            android:textAlignment="center"/>
 
         <Button
             android:layout_width="0dp"
